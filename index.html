@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EuroShield Overland</title>
 <meta name="description" content="EuroShield Overland — overland expeditions, connection and support for soldiers and veterans.">
+<link rel="alternate" hreflang="en" href="https://gaspode3.github.io/euroshield-overland-site/">
+<link rel="alternate" hreflang="uk" href="https://gaspode3.github.io/euroshield-overland-site/uk/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -28,14 +30,17 @@ p+p{margin-top:.9em}
 /* Header */
 header{position:sticky;top:0;z-index:50;background:var(--olive-dark);color:var(--hero-ink)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
-.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-size:1.25rem;font-weight:700}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-size:1.25rem;font-weight:700;white-space:nowrap}
 .brand svg{flex:none}
-nav ul{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
-nav a{color:var(--hero-ink);text-decoration:none;font-size:.88rem;padding:8px 9px;border-radius:4px;display:block}
+nav ul{display:flex;gap:2px;list-style:none;flex-wrap:nowrap;white-space:nowrap}
+nav a{color:var(--hero-ink);text-decoration:none;font-size:.84rem;padding:8px 7px;border-radius:4px;display:block}
 nav a:hover,nav a.active{background:rgba(255,255,255,.12)}
+nav a.lang{border:1px solid rgba(255,255,255,.35);font-weight:600}
 nav a.donate{background:var(--sand);color:var(--olive-dark);font-weight:600}
 .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:inherit;border-radius:4px;padding:8px 12px;font:600 .9rem Oswald,sans-serif;text-transform:uppercase}
-@media (max-width:1060px){
+header .bar{max-width:1440px}
+@media (max-width:480px){.brand{font-size:1rem;gap:8px}.brand svg{width:28px;height:32px}}
+@media (max-width:1439px){
   .menu-btn{display:block}
   nav{position:absolute;top:68px;left:0;right:0;background:var(--olive-dark);display:none;padding:8px 16px 16px}
   nav.open{display:block}
@@ -152,6 +157,7 @@ footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spaci
         <li><a href="#associates">Associates</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#donate" class="donate">Donate</a></li>
+        <li><a href="uk/" class="lang" hreflang="uk" lang="uk" title="Українська версія">UA</a></li>
       </ul>
     </nav>
   </div>

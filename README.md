@@ -4,8 +4,10 @@ A working draft of the new EuroShield Overland website: a homepage plus 10 pages
 (Who we are, What we do, Sponsors, Testimonials, How to donate, How to apply,
 Merchandise, Members only, Associate links, Contact us).
 
-Everything is in one file, `index.html`. Open it in any browser to view it — no
-installation needed.
+The English version is `index.html`, the Ukrainian version is `uk/index.html`;
+the EN / UA button in the menu switches between them. Open either file in any
+browser to view it — no installation needed. When you change content, update
+both files.
 
 ## How to fill in the content
 

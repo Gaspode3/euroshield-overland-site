@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EuroShield Overland</title>
+<meta name="description" content="EuroShield Overland — overland-експедиції, підтримка та спільнота для військових і ветеранів.">
+<link rel="alternate" hreflang="en" href="https://gaspode3.github.io/euroshield-overland-site/">
+<link rel="alternate" hreflang="uk" href="https://gaspode3.github.io/euroshield-overland-site/uk/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f1ea; --surface:#ffffff; --ink:#1d2019; --muted:#5d6255;
+  --olive:#4b5a32; --olive-dark:#2f3a1f; --sand:#c9a96a; --line:#ddd6c6;
+  --hero-ink:#f4f1ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--olive)}
+img,video{max-width:100%;display:block}
+h1,h2,h3,.brand,.btn,nav a{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+h1{font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.05}
+h2{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.1;margin-bottom:.6em}
+h3{font-size:1.25rem;margin-bottom:.4em}
+p+p{margin-top:.9em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:var(--olive-dark);color:var(--hero-ink)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-size:1.25rem;font-weight:700;white-space:nowrap}
+.brand svg{flex:none}
+nav ul{display:flex;gap:2px;list-style:none;flex-wrap:nowrap;white-space:nowrap}
+nav a{color:var(--hero-ink);text-decoration:none;font-size:.84rem;padding:8px 7px;border-radius:4px;display:block}
+nav a:hover,nav a.active{background:rgba(255,255,255,.12)}
+nav a.lang{border:1px solid rgba(255,255,255,.35);font-weight:600}
+nav a.donate{background:var(--sand);color:var(--olive-dark);font-weight:600}
+.menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:inherit;border-radius:4px;padding:8px 12px;font:600 .9rem Oswald,sans-serif;text-transform:uppercase}
+header .bar{max-width:1440px}
+@media (max-width:480px){.brand{font-size:1rem;gap:8px}.brand svg{width:28px;height:32px}}
+@media (max-width:1439px){
+  .menu-btn{display:block}
+  nav{position:absolute;top:68px;left:0;right:0;background:var(--olive-dark);display:none;padding:8px 16px 16px}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+}
+
+/* Pages */
+.page{display:none}
+.page.active{display:block}
+.page-head{background:var(--olive-dark);color:var(--hero-ink);padding:64px 0 48px}
+.page-head p{max-width:680px;opacity:.85;margin-top:.6em;font-size:1.1rem}
+section.block{padding:64px 0}
+section.alt{background:var(--surface)}
+
+/* Hero */
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:var(--hero-ink);overflow:hidden;background:#1b2212}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,10,.25),rgba(15,20,10,.82))}
+.hero .fallback{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 20% 30%,rgba(201,169,106,.25),transparent 60%),
+  repeating-radial-gradient(circle at 70% 60%,transparent 0 22px,rgba(244,241,234,.06) 22px 23px),
+  linear-gradient(160deg,#3b4a26,#151b0e)}
+.hero .content{position:relative;z-index:2;padding:0 16px 72px;max-width:1140px;margin:0 auto;width:100%}
+.hero p{font-size:1.2rem;max-width:620px;margin:16px 0 28px;opacity:.92}
+.tag{display:inline-block;font:600 .8rem Oswald,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:12px}
+
+.btn{display:inline-block;padding:13px 24px;border-radius:4px;text-decoration:none;font-weight:600;font-size:.95rem;border:2px solid transparent;cursor:pointer}
+.btn.primary{background:var(--sand);color:var(--olive-dark)}
+.btn.ghost{border-color:currentColor;color:inherit}
+.btn.dark{background:var(--olive);color:#fff}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Three pillars */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:28px}
+.card .num{font:700 2.4rem Oswald,sans-serif;color:var(--sand);line-height:1}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+
+/* Split rows */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split.rev .ph{order:2}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:24px}.split.rev .ph{order:0}}
+
+/* Photo placeholders — replace with <img src="..."> */
+.ph{aspect-ratio:4/3;border-radius:8px;display:flex;align-items:flex-end;padding:14px;color:#f4f1ea;font-size:.85rem;
+  background:linear-gradient(150deg,#6b7a4a,#2f3a1f);position:relative;overflow:hidden}
+.ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.04) 18px 19px)}
+.ph span{position:relative;background:rgba(0,0,0,.35);padding:4px 8px;border-radius:4px}
+.ph.sand{background:linear-gradient(150deg,#c9a96a,#7d6534)}
+.ph.dark{background:linear-gradient(150deg,#3d3f36,#16170f)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery .ph{aspect-ratio:1}
+@media (max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+/* Link tiles on home */
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.tiles a{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 14px;text-decoration:none;color:var(--ink);
+  font:600 .95rem Oswald,sans-serif;text-transform:uppercase;letter-spacing:.04em;transition:.15s}
+.tiles a:hover{border-color:var(--olive);transform:translateY(-2px)}
+.tiles a small{display:block;font:400 .8rem Inter,sans-serif;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:4px}
+@media (max-width:900px){.tiles{grid-template-columns:repeat(2,1fr)}}
+
+/* Generic grids */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.logo-box{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px;text-align:center;text-decoration:none;color:var(--ink)}
+.logo-box .logo{height:80px;display:flex;align-items:center;justify-content:center;background:var(--bg);border-radius:6px;margin-bottom:12px;font:600 1rem Oswald,sans-serif;color:var(--muted)}
+.quote{background:var(--surface);border-left:4px solid var(--sand);border-radius:6px;padding:24px 28px}
+.quote p{font-style:italic}
+.quote cite{display:block;margin-top:12px;font-style:normal;font-weight:600;color:var(--muted);font-size:.9rem}
+.steps{counter-reset:s;list-style:none;display:grid;gap:16px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px 20px 20px 72px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:20px;top:18px;width:36px;height:36px;border-radius:50%;background:var(--olive);color:#fff;display:grid;place-items:center;font:700 1.1rem Oswald,sans-serif}
+.product{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.product .ph{border-radius:0;aspect-ratio:1}
+.product .info{padding:16px}
+.price{font:600 1.2rem Oswald,sans-serif;color:var(--olive);margin:4px 0 12px}
+.note{background:#fff8e6;border:1px dashed var(--sand);border-radius:6px;padding:12px 16px;font-size:.9rem;color:#6b5420;margin-top:20px}
+.contact-list{list-style:none;display:grid;gap:12px}
+.contact-list li{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.contact-list b{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+input{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:4px;width:100%;max-width:320px}
+.lock{max-width:420px;margin:0 auto;text-align:center}
+.lock form{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.err{color:#9b2c2c;font-size:.9rem;margin-top:8px;min-height:1.2em}
+
+/* Footer */
+footer{background:#151a0e;color:#c9c6bb;padding:48px 0 32px;font-size:.92rem}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+footer a{color:#e8e4d8;text-decoration:none}
+footer ul{list-style:none;display:grid;gap:6px}
+footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--sand);margin-bottom:10px}
+.copy{border-top:1px solid #2c3320;margin-top:32px;padding-top:20px;font-size:.82rem;opacity:.7}
+@media (max-width:820px){.fgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home">
+      <svg width="34" height="38" viewBox="0 0 34 38" aria-hidden="true"><path d="M17 1 32 7v11c0 9-6.5 16-15 19C8.5 34 2 27 2 18V7z" fill="#c9a96a"/><path d="M7 24l6-8 4 5 3-3 7 6z" fill="#2f3a1f"/></svg>
+      EuroShield Overland
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Меню</button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#who">Хто ми</a></li>
+        <li><a href="#what">Що ми робимо</a></li>
+        <li><a href="#sponsors">Спонсори</a></li>
+        <li><a href="#testimonials">Відгуки</a></li>
+        <li><a href="#apply">Подати заявку</a></li>
+        <li><a href="#shop">Магазин</a></li>
+        <li><a href="#members">Для членів</a></li>
+        <li><a href="#associates">Партнери</a></li>
+        <li><a href="#contact">Контакти</a></li>
+        <li><a href="#donate" class="donate">Підтримати</a></li>
+        <li><a href="../" class="lang" hreflang="en" lang="en" title="English version">EN</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ ГОЛОВНА ============ -->
+<div class="page" id="home">
+  <section class="hero">
+    <div class="fallback"></div>
+    <!-- Замініть hero.mp4 на власний короткий ролик (10–20 с, без звуку, до ~10 МБ) -->
+    <video autoplay muted loop playsinline poster="">
+      <source src="../media/hero.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+      <span class="tag">Військові · Ветерани · Overland</span>
+      <h1>Дорога назад<br>починається разом</h1>
+      <p>EuroShield Overland бере військових і ветеранів в overland-експедиції: справжнє бездоріжжя, справжня командна робота і той зв'язок між людьми, що допомагає знову знайти опору після служби.</p>
+      <div class="btns">
+        <a class="btn primary" href="#apply">Подати заявку на поїздку</a>
+        <a class="btn ghost" href="#donate">Підтримати місію</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="three">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>Що потрібно</h3>
+          <p>Багато військових і ветеранів повертаються додому з пораненнями, стресом та відчуттям ізоляції. Найбільше часто допомагає просте: час на природі, команда поруч і мета, до якої можна рухатися.</p>
+          <p><a href="#what">Детальніше →</a></p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>Що ми надаємо</h3>
+          <p>Повністю забезпечені overland-поїздки: автомобілі, спорядження, маршрути, харчування й досвідчена команда. А ще спільнота, яка залишається на зв'язку ще довго після поїздки.</p>
+          <p><a href="#what">Як це працює →</a></p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>Як ви можете допомогти</h3>
+          <p>Задонатьте, оплатіть участь когось із ветеранів, позичте спорядження чи поділіться навичками, купіть наш мерч або станьте членом. Кожен внесок виводить на дорогу ще одного ветерана.</p>
+          <p><a href="#donate">Способи допомоги →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap split">
+      <div class="ph"><span>Фото: колона на гірській дорозі</span></div>
+      <div>
+        <span class="tag" style="color:var(--olive)">Наша місія</span>
+        <h2>Зв'язок. Природа. Стійкість.</h2>
+        <p>Ми віримо, що навички, здобуті на службі, — командна робота, орієнтування, вміння ухвалювати рішення під тиском — саме те, чого вимагає overlanding. У наших поїздках ці навички стають містком назад до звичайного життя.</p>
+        <div class="btns" style="margin-top:20px"><a class="btn dark" href="#who">Хто ми</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>З дороги</h2>
+      <div class="gallery">
+        <div class="ph"><span>Фото: вогнище</span></div>
+        <div class="ph sand"><span>Фото: автомобілі в таборі</span></div>
+        <div class="ph dark"><span>Фото: групове фото</span></div>
+        <div class="ph"><span>Фото: переправа через річку</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <h2>Розділи сайту</h2>
+      <div class="tiles">
+        <a href="#who">Хто ми<small>Наша історія та команда</small></a>
+        <a href="#what">Що ми робимо<small>Місія та послуги</small></a>
+        <a href="#sponsors">Спонсори<small>Хто нас підтримує</small></a>
+        <a href="#testimonials">Відгуки<small>Листи з дороги</small></a>
+        <a href="#donate">Як задонатити<small>Підтримати місію</small></a>
+        <a href="#apply">Як подати заявку<small>Долучитися до поїздки</small></a>
+        <a href="#shop">Мерч<small>Речі та членство</small></a>
+        <a href="#members">Для членів<small>Закритий розділ</small></a>
+        <a href="#associates">Партнери<small>Організації-партнери</small></a>
+        <a href="#contact">Контакти<small>Пошта й соцмережі</small></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ХТО МИ ============ -->
+<div class="page" id="who">
+  <div class="page-head"><div class="wrap"><h1>Хто ми</h1><p>Військові, ветерани й волонтери, які вірять, що дорога лікує.</p></div></div>
+  <section class="block"><div class="wrap split">
+    <div>
+      <h2>Наша історія</h2>
+      <p>[Історія заснування — хто започаткував EuroShield Overland, коли і чому. Найкраще два-три короткі абзаци.]</p>
+      <p>[Чим вирізняється команда — наприклад, багато з нас служили самі й знають, які вони, перші місяці після служби.]</p>
+    </div>
+    <div class="ph"><span>Фото: засновники / команда</span></div>
+  </div></section>
+  <section class="block alt"><div class="wrap">
+    <h2>Команда</h2>
+    <div class="grid">
+      <div class="card"><div class="ph" style="margin-bottom:14px"><span>Фото</span></div><h3>[Ім'я]</h3><p>Засновник · [коротко про себе]</p></div>
+      <div class="card"><div class="ph sand" style="margin-bottom:14px"><span>Фото</span></div><h3>[Ім'я]</h3><p>Керівник експедицій · [коротко про себе]</p></div>
+      <div class="card"><div class="ph dark" style="margin-bottom:14px"><span>Фото</span></div><h3>[Ім'я]</h3><p>Зв'язок з ветеранами · [коротко про себе]</p></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ ЩО МИ РОБИМО ============ -->
+<div class="page" id="what">
+  <div class="page-head"><div class="wrap"><h1>Що ми робимо</h1><p>Наша місія і як ми її втілюємо.</p></div></div>
+  <section class="block"><div class="wrap">
+    <h2>Наша місія</h2>
+    <p style="max-width:760px">[Формулювання місії — одне-два речення. Наприклад: EuroShield Overland підтримує військових і ветеранів через повністю профінансовані overland-експедиції, що відновлюють зв'язок, упевненість і стійкість.]</p>
+  </div></section>
+  <section class="block alt"><div class="wrap">
+    <h2>Як ми надаємо допомогу</h2>
+    <div class="three">
+      <div class="card"><h3>Експедиції</h3><p>Багатоденні overland-поїздки [регіонами]. Ми забезпечуємо автомобілі, спорядження для витягування, кемпінгове обладнання та харчування.</p></div>
+      <div class="card"><h3>Навички та навчання</h3><p>Водіння бездоріжжям, орієнтування, витягування авто й польовий ремонт — практичні навички, які знадобляться і в цивільному житті.</p></div>
+      <div class="card"><h3>Спільнота</h3><p>Зустрічі, повторні поїздки й мережа членів, щоб після поїздки ніхто знову не залишався сам.</p></div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap split rev">
+    <div class="ph sand"><span>Фото: навчання</span></div>
+    <div>
+      <h2>Для кого наші поїздки</h2>
+      <p>[Хто може взяти участь — наприклад, військові на реабілітації, ветерани, а в деяких випадках і їхні родини.]</p>
+      <div class="btns" style="margin-top:20px"><a class="btn dark" href="#apply">Як подати заявку</a></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ СПОНСОРИ ============ -->
+<div class="page" id="sponsors">
+  <div class="page-head"><div class="wrap"><h1>Спонсори</h1><p>Компанії й організації, завдяки яким наші поїздки стають можливими. Дякуємо.</p></div></div>
+  <section class="block"><div class="wrap">
+    <div class="grid">
+      <a class="logo-box" href="#" target="_blank" rel="noopener"><div class="logo">ЛОГО</div><b>[Назва спонсора]</b><br><small>[website.com]</small></a>
+      <a class="logo-box" href="#" target="_blank" rel="noopener"><div class="logo">ЛОГО</div><b>[Назва спонсора]</b><br><small>[website.com]</small></a>
+      <a class="logo-box" href="#" target="_blank" rel="noopener"><div class="logo">ЛОГО</div><b>[Назва спонсора]</b><br><small>[website.com]</small></a>
+      <a class="logo-box" href="#" target="_blank" rel="noopener"><div class="logo">ЛОГО</div><b>[Назва спонсора]</b><br><small>[website.com]</small></a>
+    </div>
+    <div class="card" style="margin-top:40px">
+      <h3>Стати спонсором</h3>
+      <p>Хочете підтримати EuroShield Overland від імені компанії? <a href="#contact">Напишіть нам</a>, і ми надішлемо варіанти спонсорства.</p>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ ВІДГУКИ ============ -->
+<div class="page" id="testimonials">
+  <div class="page-head"><div class="wrap"><h1>Відгуки</h1><p>Листи від людей, які подорожували та працювали з нами.</p></div></div>
+  <section class="block"><div class="wrap grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
+    <div class="quote"><p>[Вставте лист або уривок з нього.]</p><cite>— [Ім'я або ініціали], [поїздка / рік]</cite></div>
+    <div class="quote"><p>[Вставте лист або уривок з нього.]</p><cite>— [Ім'я або ініціали], [поїздка / рік]</cite></div>
+    <div class="quote"><p>[Вставте лист або уривок з нього.]</p><cite>— [Ім'я або ініціали], [поїздка / рік]</cite></div>
+    <div class="quote"><p>[Вставте лист або уривок з нього.]</p><cite>— [Ім'я або ініціали], [поїздка / рік]</cite></div>
+  </div></section>
+</div>
+
+<!-- ============ ДОНАТИ ============ -->
+<div class="page" id="donate">
+  <div class="page-head"><div class="wrap"><h1>Як задонатити</h1><p>Кожен донат допомагає вивести військових і ветеранів на дорогу.</p></div></div>
+  <section class="block"><div class="wrap">
+    <div class="three">
+      <div class="card"><h3>Онлайн</h3><p>Картка, PayPal або Apple/Google Pay — найшвидший спосіб.</p><div class="btns" style="margin-top:16px"><a class="btn dark" href="#" target="_blank" rel="noopener">[Задонатити онлайн]</a></div></div>
+      <div class="card"><h3>Банківський переказ</h3><p>[Отримувач]<br>IBAN: [………]<br>BIC/SWIFT: [………]<br>Призначення: «Благодійний внесок»</p></div>
+      <div class="card"><h3>Інші способи</h3><p>Оплатіть повну поїздку для одного ветерана, передайте спорядження або допоможіть своїми навичками. <a href="#contact">Напишіть нам</a>, щоб домовитися.</p></div>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h3>Що дає ваш внесок</h3>
+      <p>[Наприклад: €50 — пальне на один день у дорозі · €150 — харчування й кемпінг для одного учасника на поїздку · €600 — повністю оплачене місце одного ветерана в експедиції]</p>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ ПОДАТИ ЗАЯВКУ ============ -->
+<div class="page" id="apply">
+  <div class="page-head"><div class="wrap"><h1>Як подати заявку</h1><p>Для військових і ветеранів, які хочуть долучитися до однієї з наших поїздок.</p></div></div>
+  <section class="block"><div class="wrap">
+    <ol class="steps">
+      <li><h3>Перевірте, чи підходите ви</h3><p>[Хто може подати заявку — статус служби, вимоги до фізичної форми, посвідчення водія, якщо потрібно.]</p></li>
+      <li><h3>Заповніть онлайн-форму</h3><p>Розкажіть про себе, свою службу і яка поїздка вас цікавить. Це займе близько 10 хвилин.</p></li>
+      <li><h3>Коротка розмова з командою</h3><p>Ми зв'яжемося з вами протягом [X] днів, щоб обговорити поїздку й відповісти на запитання.</p></li>
+      <li><h3>Збирайтеся в дорогу</h3><p>Ми надішлемо список речей, маршрут і все інше, що потрібно. Ми покриваємо [дорогу / харчування / спорядження].</p></li>
+    </ol>
+    <div class="btns" style="margin-top:32px"><a class="btn dark" href="#" target="_blank" rel="noopener">[Відкрити форму реєстрації]</a></div>
+  </div></section>
+</div>
+
+<!-- ============ МАГАЗИН ============ -->
+<div class="page" id="shop">
+  <div class="page-head"><div class="wrap"><h1>Мерч</h1><p>Речі та членство. Усі кошти йдуть на місію.</p></div></div>
+  <section class="block"><div class="wrap">
+    <div class="grid">
+      <div class="product"><div class="ph"><span>Фото</span></div><div class="info"><h3>Членство</h3><p>На рік · закритий розділ, рання реєстрація, нашивка члена</p><div class="price">€[00]</div><a class="btn dark" href="#">Купити</a></div></div>
+      <div class="product"><div class="ph sand"><span>Фото</span></div><div class="info"><h3>Футболка з логотипом</h3><p>Розміри S–XXL</p><div class="price">€[00]</div><a class="btn dark" href="#">Купити</a></div></div>
+      <div class="product"><div class="ph dark"><span>Фото</span></div><div class="info"><h3>Кепка</h3><p>Універсальний розмір</p><div class="price">€[00]</div><a class="btn dark" href="#">Купити</a></div></div>
+      <div class="product"><div class="ph"><span>Фото</span></div><div class="info"><h3>Нашивка</h3><p>На липучці</p><div class="price">€[00]</div><a class="btn dark" href="#">Купити</a></div></div>
+    </div>
+    <div class="note">Для розробника: кнопкам «Купити» потрібна справжня оплата — наприклад, Shopify Buy Button, Stripe Payment Links або вбудований магазин конструктора сайтів.</div>
+  </div></section>
+</div>
+
+<!-- ============ ДЛЯ ЧЛЕНІВ ============ -->
+<div class="page" id="members">
+  <div class="page-head"><div class="wrap"><h1>Для членів</h1><p>Розділ для членів EuroShield Overland.</p></div></div>
+  <section class="block"><div class="wrap">
+    <div class="lock" id="lock">
+      <h2>Вхід для членів</h2>
+      <p>Введіть пароль, щоб продовжити.</p>
+      <form id="lockForm"><input type="password" id="pw" placeholder="Пароль" aria-label="Пароль"><button class="btn dark" type="submit">Увійти</button></form>
+      <div class="err" id="err"></div>
+    </div>
+    <div id="memberArea" hidden>
+      <h2>З поверненням</h2>
+      <div class="three">
+        <div class="card"><h3>Найближчі поїздки</h3><p>[Дати й посилання на ранню реєстрацію для членів.]</p></div>
+        <div class="card"><h3>Спеціальні послуги</h3><p>[Як попросити спорядження, наставництво, допомогу з документами тощо.]</p></div>
+        <div class="card"><h3>Будьмо на зв'язку</h3><p>[Посилання на чат членів, зустрічі, розсилку.]</p></div>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ ПАРТНЕРИ ============ -->
+<div class="page" id="associates">
+  <div class="page-head"><div class="wrap"><h1>Партнери</h1><p>Організації, з якими ми співпрацюємо.</p></div></div>
+  <section class="block"><div class="wrap">
+    <ul class="contact-list">
+      <li><b>[Організація]</b><a href="#" target="_blank" rel="noopener">[website.org]</a></li>
+      <li><b>[Організація]</b><a href="#" target="_blank" rel="noopener">[website.org]</a></li>
+      <li><b>[Організація]</b><a href="#" target="_blank" rel="noopener">[website.org]</a></li>
+      <li><b>Veteran Overland (США)</b><a href="https://www.veteranoverland.org/" target="_blank" rel="noopener">veteranoverland.org</a></li>
+    </ul>
+  </div></section>
+</div>
+
+<!-- ============ КОНТАКТИ ============ -->
+<div class="page" id="contact">
+  <div class="page-head"><div class="wrap"><h1>Контакти</h1><p>Зазвичай відповідаємо протягом кількох днів.</p></div></div>
+  <section class="block"><div class="wrap split" style="align-items:start">
+    <div>
+      <h2>Пошта</h2>
+      <ul class="contact-list">
+        <li><b>Загальні питання</b><a href="mailto:info@euroshieldoverland.org">[info@euroshieldoverland.org]</a></li>
+        <li><b>Поїздки та заявки</b><a href="mailto:apply@euroshieldoverland.org">[apply@euroshieldoverland.org]</a></li>
+        <li><b>Спонсорство й донати</b><a href="mailto:support@euroshieldoverland.org">[support@euroshieldoverland.org]</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Соцмережі</h2>
+      <ul class="contact-list">
+        <li><b>Instagram</b><a href="#" target="_blank" rel="noopener">[@handle]</a></li>
+        <li><b>Facebook</b><a href="#" target="_blank" rel="noopener">[назва сторінки]</a></li>
+        <li><b>YouTube</b><a href="#" target="_blank" rel="noopener">[канал]</a></li>
+      </ul>
+    </div>
+  </div></section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>EuroShield Overland</h4>
+        <p>Overland-експедиції, підтримка та спільнота для військових і ветеранів.</p>
+        <div class="btns" style="margin-top:16px"><a class="btn primary" href="#donate">Підтримати</a></div>
+      </div>
+      <div><h4>Про нас</h4><ul><li><a href="#who">Хто ми</a></li><li><a href="#what">Що ми робимо</a></li><li><a href="#sponsors">Спонсори</a></li><li><a href="#testimonials">Відгуки</a></li><li><a href="#associates">Партнери</a></li></ul></div>
+      <div><h4>Долучайтеся</h4><ul><li><a href="#apply">Як подати заявку</a></li><li><a href="#donate">Як задонатити</a></li><li><a href="#shop">Мерч</a></li><li><a href="#members">Для членів</a></li><li><a href="#contact">Контакти</a></li></ul></div>
+    </div>
+    <div class="copy">© <span id="yr"></span> EuroShield Overland. [Реєстраційний номер організації].</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages = document.querySelectorAll('.page');
+  var links = document.querySelectorAll('nav a');
+  var nav = document.getElementById('nav');
+  var menuBtn = document.querySelector('.menu-btn');
+
+  function show(){
+    var id = (location.hash || '#home').slice(1);
+    if(!document.getElementById(id) || !document.getElementById(id).classList.contains('page')) id = 'home';
+    pages.forEach(function(p){ p.classList.toggle('active', p.id === id); });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+    nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false');
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
+
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+
+  // Hide video element if the file is missing, so the fallback background shows
+  var v = document.querySelector('.hero video');
+  v.addEventListener('error', function(){ v.style.display='none'; }, true);
+
+  // DEMO ONLY — replace with real server-side protection
+  document.getElementById('lockForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(document.getElementById('pw').value === 'member'){
+      document.getElementById('lock').hidden = true;
+      document.getElementById('memberArea').hidden = false;
+    } else {
+      document.getElementById('err').textContent = 'Неправильний пароль.';
+    }
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
