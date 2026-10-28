@@ -3,15 +3,12 @@
 A working draft of the new EuroShield Overland website: a homepage plus 10 pages
 (Who we are, What we do, Sponsors, Testimonials, How to donate, How to apply,
 Merchandise, Members only, Associate links, Contact us). Sponsors and
-Testimonials are hidden at launch (see below).
+Testimonials are hidden at launch (see below). Everything below applies to both language versions.
 
 The English version is `index.html`, the Ukrainian version is `uk/index.html`;
 the EN / UA button in the menu switches between them. Open either file in any
 browser to view it — no installation needed. When you change content, update
 both files.
-
-> **Note:** `uk/index.html` still shows the earlier draft. It has not been
-> updated with the client's questionnaire answers yet; that is a separate task.
 
 ## How to fill in the content
 
