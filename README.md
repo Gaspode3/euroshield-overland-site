@@ -62,9 +62,13 @@ Do the same with `#testimonials` ("Letters from the road").
 4. **Membership** has **2 tiers**. Members pay by making a donation of at least
    the tier minimum, and the board approves each member manually. Fill in the
    tier amounts on the Members only page.
-5. **Members only** — the password (`member`) is a demo inside the page and is
-   **not secure**. Real protection must come from the platform. The access
-   method (Wix members area vs Discord roles) has not been decided yet.
+5. **Members only** — members-only content lives in a **private Discord
+   server** with one role per tier (Tier 1: behind-the-scenes media; Tier 2:
+   also the live chat and the channel for questions for the videos). There is
+   no login on the website: after a donation the board approves the member,
+   sends a Discord invite and assigns the role. Set up the server and roles,
+   and keep the invite link private. The special-service form on the page
+   needs a form endpoint like the other forms.
 
 ## Previewing online (GitHub Pages)
 

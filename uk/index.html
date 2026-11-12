@@ -444,36 +444,29 @@ footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spaci
     <ol class="steps" style="margin-top:32px">
       <li><h3>Задонатьте</h3><p>Зробіть донат щонайменше на мінімальну суму вашого рівня.</p></li>
       <li><h3>Правління схвалює</h3><p>Наше правління розглядає й схвалює нових членів.</p></li>
-      <li><h3>Ви отримуєте доступ</h3><p>Ми надсилаємо вам дані для входу в розділ для членів.</p></li>
+      <li><h3>Ви отримуєте доступ</h3><p>Ми надсилаємо вам запрошення на наш закритий сервер у Discord і видаємо роль вашого рівня.</p></li>
     </ol>
     <div class="btns" style="margin-top:32px"><a class="btn dark" href="#donate">Стати членом</a></div>
   </div></section>
   <section class="block alt"><div class="wrap">
-    <!-- Спосіб доступу ще не обрано (розділ для членів Wix чи ролі в Discord) -->
-    <div class="lock" id="lock">
-      <h2>Вхід для членів</h2>
-      <p>Введіть пароль, щоб продовжити.</p>
-      <form id="lockForm"><input type="password" id="pw" placeholder="Пароль" aria-label="Пароль"><button class="btn dark" type="submit">Увійти</button></form>
-      <div class="err" id="err"></div>
+    <!-- Контент для членів — на закритому сервері Discord; доступ за запрошенням і роллю рівня (входу на сайті немає) -->
+    <h2>Усередині нашого Discord</h2>
+    <p style="max-width:680px">Кожен член має власний акаунт на нашому закритому сервері Discord. Правління видає роль вашого рівня, і саме роль визначає, які канали ви бачите.</p>
+    <div class="three" style="margin-top:24px">
+      <div class="card"><h3>Фото й відео з-за лаштунків</h3><span class="tag" style="color:var(--olive)">Рівні 1 і 2</span><p>Фото й відео з наших мандрівок для членів.</p></div>
+      <div class="card"><h3>Живий чат під час мандрівок</h3><span class="tag" style="color:var(--olive)">Рівень 2</span><p>Спілкуйтеся з командою, поки триває мандрівка.</p></div>
+      <div class="card"><h3>Запитання для наших відео</h3><span class="tag" style="color:var(--olive)">Рівень 2</span><p>Надішліть запитання — на деякі з них ми відповідаємо у відео.</p></div>
     </div>
-    <div id="memberArea" hidden>
-      <h2>З поверненням</h2>
-      <div class="three">
-        <div class="card"><h3>Фото й відео з-за лаштунків</h3><p>[Посилання на фото й відео з наших мандрівок для членів.]</p></div>
-        <div class="card"><h3>Живий чат під час мандрівок</h3><span class="tag" style="color:var(--olive)">Рівень 2</span><p>[Посилання на чат — працює, поки триває мандрівка.]</p></div>
-        <div class="card"><h3>Запитання для наших відео</h3><span class="tag" style="color:var(--olive)">Рівень 2</span><p>[Як надіслати запитання — на деякі з них ми відповідаємо у відео.]</p></div>
-      </div>
-      <div class="card" style="margin-top:24px">
-        <h3>Запит на спеціальну послугу</h3>
-        <p>Розкажіть, що вам потрібно, і ми з вами зв'яжемося.</p>
-        <!-- FORM ENDPOINT: замініть на URL сервісу форм (напр. Formspree/Web3Forms/Netlify Forms) -->
-        <form class="form" action="#" method="post" data-form="special">
-          <div><label for="sp-name">Ім'я</label><input id="sp-name" name="name" type="text" autocomplete="name" required></div>
-          <div><label for="sp-email">Email</label><input id="sp-email" name="email" type="email" autocomplete="email" required></div>
-          <div><label for="sp-request">Запит</label><textarea id="sp-request" name="request" required></textarea></div>
-          <button class="btn dark" type="submit">Надіслати запит</button>
-        </form>
-      </div>
+    <div class="card" style="margin-top:24px">
+      <h3>Запит на спеціальну послугу <small>(для членів)</small></h3>
+      <p>Розкажіть, що вам потрібно, і ми з вами зв'яжемося.</p>
+      <!-- FORM ENDPOINT: замініть на URL сервісу форм (напр. Formspree/Web3Forms/Netlify Forms) -->
+      <form class="form" action="#" method="post" data-form="special">
+        <div><label for="sp-name">Ім'я</label><input id="sp-name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="sp-email">Email</label><input id="sp-email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="sp-request">Запит</label><textarea id="sp-request" name="request" required></textarea></div>
+        <button class="btn dark" type="submit">Надіслати запит</button>
+      </form>
     </div>
   </div></section>
 </div>
@@ -570,17 +563,6 @@ footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spaci
   // Hide video element if the file is missing, so the fallback background shows
   var v = document.querySelector('.hero video');
   v.addEventListener('error', function(){ v.style.display='none'; }, true);
-
-  // DEMO ONLY — replace with real server-side protection
-  document.getElementById('lockForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    if(document.getElementById('pw').value === 'member'){
-      document.getElementById('lock').hidden = true;
-      document.getElementById('memberArea').hidden = false;
-    } else {
-      document.getElementById('err').textContent = 'Неправильний пароль.';
-    }
-  });
 
   // Forms: while action="#" (no form service connected yet), show a demo note instead of submitting
   document.querySelectorAll('form[data-form]').forEach(function(f){

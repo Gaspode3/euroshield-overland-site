@@ -444,36 +444,29 @@ footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spaci
     <ol class="steps" style="margin-top:32px">
       <li><h3>Donate</h3><p>Make a donation of at least your tier's minimum.</p></li>
       <li><h3>The board approves</h3><p>Our board reviews and approves new members.</p></li>
-      <li><h3>You get access</h3><p>We send you your login details for the member area.</p></li>
+      <li><h3>You get access</h3><p>We send you an invite to our private Discord server and give you the role for your tier.</p></li>
     </ol>
     <div class="btns" style="margin-top:32px"><a class="btn dark" href="#donate">Become a member</a></div>
   </div></section>
   <section class="block alt"><div class="wrap">
-    <!-- Access method not decided yet (Wix members area vs Discord roles) -->
-    <div class="lock" id="lock">
-      <h2>Member login</h2>
-      <p>Enter the members' password to continue.</p>
-      <form id="lockForm"><input type="password" id="pw" placeholder="Password" aria-label="Password"><button class="btn dark" type="submit">Enter</button></form>
-      <div class="err" id="err"></div>
+    <!-- Members-only content lives in a private Discord server; access is by invite + tier role (no login on this site) -->
+    <h2>Inside our Discord</h2>
+    <p style="max-width:680px">Members get their own account on our private Discord server. The board gives each member the role for their tier, and the role decides which channels they see.</p>
+    <div class="three" style="margin-top:24px">
+      <div class="card"><h3>Behind-the-scenes media</h3><span class="tag" style="color:var(--olive)">Tier 1 &amp; 2</span><p>Members' photos and videos from our journeys.</p></div>
+      <div class="card"><h3>Live chat during journeys</h3><span class="tag" style="color:var(--olive)">Tier 2</span><p>Chat with the team while a journey is under way.</p></div>
+      <div class="card"><h3>Ask a question for our videos</h3><span class="tag" style="color:var(--olive)">Tier 2</span><p>Send a question — we answer a selection in our videos.</p></div>
     </div>
-    <div id="memberArea" hidden>
-      <h2>Welcome back</h2>
-      <div class="three">
-        <div class="card"><h3>Behind-the-scenes media</h3><p>[Link to members' photos and videos from our journeys.]</p></div>
-        <div class="card"><h3>Live chat during journeys</h3><span class="tag" style="color:var(--olive)">Tier 2</span><p>[Link to the live chat — open while a journey is under way.]</p></div>
-        <div class="card"><h3>Ask a question for our videos</h3><span class="tag" style="color:var(--olive)">Tier 2</span><p>[How to send a question — we answer a selection in our videos.]</p></div>
-      </div>
-      <div class="card" style="margin-top:24px">
-        <h3>Request a special service</h3>
-        <p>Tell us what you need and we'll get back to you.</p>
-        <!-- FORM ENDPOINT: replace with form service URL (e.g. Formspree/Web3Forms/Netlify Forms) -->
-        <form class="form" action="#" method="post" data-form="special">
-          <div><label for="sp-name">Name</label><input id="sp-name" name="name" type="text" autocomplete="name" required></div>
-          <div><label for="sp-email">Email</label><input id="sp-email" name="email" type="email" autocomplete="email" required></div>
-          <div><label for="sp-request">Request</label><textarea id="sp-request" name="request" required></textarea></div>
-          <button class="btn dark" type="submit">Send request</button>
-        </form>
-      </div>
+    <div class="card" style="margin-top:24px">
+      <h3>Request a special service <small>(members)</small></h3>
+      <p>Tell us what you need and we'll get back to you.</p>
+      <!-- FORM ENDPOINT: replace with form service URL (e.g. Formspree/Web3Forms/Netlify Forms) -->
+      <form class="form" action="#" method="post" data-form="special">
+        <div><label for="sp-name">Name</label><input id="sp-name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="sp-email">Email</label><input id="sp-email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="sp-request">Request</label><textarea id="sp-request" name="request" required></textarea></div>
+        <button class="btn dark" type="submit">Send request</button>
+      </form>
     </div>
   </div></section>
 </div>
@@ -570,17 +563,6 @@ footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spaci
   // Hide video element if the file is missing, so the fallback background shows
   var v = document.querySelector('.hero video');
   v.addEventListener('error', function(){ v.style.display='none'; }, true);
-
-  // DEMO ONLY — replace with real server-side protection
-  document.getElementById('lockForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    if(document.getElementById('pw').value === 'member'){
-      document.getElementById('lock').hidden = true;
-      document.getElementById('memberArea').hidden = false;
-    } else {
-      document.getElementById('err').textContent = 'Wrong password.';
-    }
-  });
 
   // Forms: while action="#" (no form service connected yet), show a demo note instead of submitting
   document.querySelectorAll('form[data-form]').forEach(function(f){
