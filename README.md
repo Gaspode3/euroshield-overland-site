@@ -48,10 +48,14 @@ Do the same with `#testimonials` ("Letters from the road").
    "Form not connected yet (demo)" instead of sending. Set `action` to a form
    service URL (Formspree, Web3Forms, Netlify Forms, or the website builder's
    own forms). Look for the `FORM ENDPOINT` comments.
-2. **Donations** go through **Donorbox**, run by the **US nonprofit**: replace
-   the "[Donate online — Donorbox link]" button with the campaign link. Fill in
-   the US and Ukrainian bank details and the tax-deductibility line on the
-   Donate page. No crypto.
+2. **Donations** are received mostly by **ESO USA** (the US nonprofit; bank
+   account and PayPal already exist). Replace the "[Donate online — Donorbox
+   link]" and PayPal buttons with real links, and fill in ESO USA's bank details.
+   The PrivatBank accounts (UAH, EUR, maybe USD) sit in a separate, smaller
+   "Donating from Ukraine" block. No crypto. ESO USA's 501(c)(3) status is
+   **pending IRS approval** (effective date 30 Sep 2026): the Receipts text
+   must not claim tax-deductibility until it is approved. Financial matters are
+   handled by ESO USA's treasurer.
 3. **Merchandise** is print-on-demand: the "Buy" buttons will link to a
    Printful / Printify / Fourthwall storefront, which handles checkout and
    shipping. Membership is **no longer sold in the shop**.
