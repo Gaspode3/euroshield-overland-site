@@ -22,6 +22,24 @@ both files.
 - **Links:** buttons and links marked `href="#"` (donate, shop, social media,
   associates) need real addresses.
 
+## Brand colours
+
+Defined once, as CSS variables at the top of the `<style>` block in both files
+(`index.html`, `uk/index.html`):
+
+| Colour | HEX | Use |
+| --- | --- | --- |
+| Olive Green | `#445500` | header, page headings, buttons, links |
+| Orange | `#FF6600` | Donate / Apply buttons, active menu underline, accent line under page headings |
+| White | `#FFFFFF` | cards, form fields |
+| Military Desert Tan (FS 33446) | `#B7A47A` | page background (approximate digital value) |
+
+Two derived shades are also used: a darker olive `#2c3600` (link text, so it
+stays readable on tan) and a light tan tint `#d7cdb6` (alternate sections).
+White text on orange is too low-contrast, so orange buttons use dark text.
+The small shield in the header is a placeholder; replace it with the official
+logo SVG.
+
 ## Hidden pages: Sponsors and Testimonials
 
 There is no content for these pages yet, so they are removed from the header
