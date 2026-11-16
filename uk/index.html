@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EuroShield Overland</title>
 <meta name="description" content="EuroShield Overland — overland-експедиції, підтримка та спільнота для військових і ветеранів.">
+<link rel="icon" type="image/svg+xml" href="../media/logo.svg">
 <link rel="alternate" hreflang="en" href="https://gaspode3.github.io/euroshield-overland-site/">
 <link rel="alternate" hreflang="uk" href="https://gaspode3.github.io/euroshield-overland-site/uk/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +36,7 @@ p+p{margin-top:.9em}
 header{position:sticky;top:0;z-index:50;background:var(--olive);color:var(--hero-ink)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
 .brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-size:1.25rem;font-weight:700;white-space:nowrap}
-.brand svg{flex:none}
+.brand img{flex:none;height:44px;width:auto}
 nav ul{display:flex;gap:2px;list-style:none;flex-wrap:nowrap;white-space:nowrap}
 nav a{color:var(--hero-ink);text-decoration:none;font-size:.84rem;padding:8px 7px;border-radius:4px;display:block}
 nav a:hover,nav a.active{background:rgba(255,255,255,.12)}
@@ -44,7 +45,7 @@ nav a.lang{border:1px solid rgba(255,255,255,.35);font-weight:600}
 nav a.donate{background:var(--orange);color:var(--ink);font-weight:600}
 .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:inherit;border-radius:4px;padding:8px 12px;font:600 .9rem Oswald,sans-serif;text-transform:uppercase}
 header .bar{max-width:1440px}
-@media (max-width:480px){.brand{font-size:1rem;gap:8px}.brand svg{width:28px;height:32px}}
+@media (max-width:480px){.brand{font-size:1rem;gap:8px}.brand img{height:36px}}
 @media (max-width:1439px){
   .menu-btn{display:block}
   nav{position:absolute;top:68px;left:0;right:0;background:var(--olive);display:none;padding:8px 16px 16px}
@@ -167,7 +168,7 @@ footer h4{font:600 .9rem Oswald,sans-serif;text-transform:uppercase;letter-spaci
 <header>
   <div class="wrap bar">
     <a class="brand" href="#home">
-      <svg width="34" height="38" viewBox="0 0 34 38" aria-hidden="true"><path d="M17 1 32 7v11c0 9-6.5 16-15 19C8.5 34 2 27 2 18V7z" fill="#b7a47a"/><path d="M7 24l6-8 4 5 3-3 7 6z" fill="#445500"/></svg>
+      <img class="logo-img" src="../media/logo.svg" alt="" width="34" height="42">
       EuroShield Overland
     </a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav">Меню</button>

@@ -37,8 +37,8 @@ Defined once, as CSS variables at the top of the `<style>` block in both files
 Two derived shades are also used: a darker olive `#2c3600` (link text, so it
 stays readable on tan) and a light tan tint `#d7cdb6` (alternate sections).
 White text on orange is too low-contrast, so orange buttons use dark text.
-The small shield in the header is a placeholder; replace it with the official
-logo SVG.
+The official logo is `media/logo.svg` (cropped to the shield); it is used in the
+header and as the browser-tab icon. To replace it, overwrite that file.
 
 ## Hidden pages: Sponsors and Testimonials
 
